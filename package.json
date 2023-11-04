@@ -15,7 +15,7 @@
     },
     "keywords": [],
     "author": "Lex pineapple",
-    "license": "ISC",
+    "license": "MIT",
     "homepage": "",
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^5.46.0",
