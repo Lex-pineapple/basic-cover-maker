@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "lib": ["dom", "es2015", "es2016"],                           
+    "module": "ES6",                               
+    "moduleResolution": "node",                       
+    "baseUrl": "./src",                                
+    "outDir": "./dist",                                  
+    "esModuleInterop": true,                             
+    "forceConsistentCasingInFileNames": true,           
+    "strict": true,                                     
+    "noImplicitAny": true,                           
+    "strictNullChecks": true,                       
+    "skipLibCheck": true                                
+  }
+}

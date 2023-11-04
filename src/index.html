@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <!-- <link rel="stylesheet" href="./global.css"> -->
+        <title>Basic Cover Maker</title>
+    </head>
+    <body>
+        <header>
+            <h1>Basic Cover Maker</h1>
+        </header>
+        <main>
+            <div class="inputs">
+                <label for="type-input">Book type</label>
+                <select name="type-input" id="type-input">
+                    <option value="Original Work">Original Work</option>
+                    <option value="Fanwork" selected>Fanwork</option>
+                </select>
+                <label for="series-input">Series</label>
+                <input type="text" name="series-input" id="series-input" />
+                <label for="title-input">Title</label>
+                <input type="text" name="title-input" id="title-input" />
+                <label for="author-input">Author</label>
+                <input type="text" name="author-input" id="author-input" />
+                <label for="year-input">Year</label>
+                <input type="number" name="year-input" id="year-input" />
+                <button id="button-make">Generate</button>
+                <button id="button-save" disabled>Save Image</button>
+            </div>
+            <div class="results"></div>
+        </main>
+        <!-- <script src="./index.js" type="module"></script> -->
+    </body>
+</html>
