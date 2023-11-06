@@ -1,5 +1,7 @@
 import App from './components/app/app';
-import './global.css';
+import './styles/global.scss';
+import './styles/input-form.scss';
+import './styles/results.scss';
 
 const app = new App();
 app.start();

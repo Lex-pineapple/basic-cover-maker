@@ -11,8 +11,8 @@ const baseConfig = {
     module: {
         rules: [
             {
-                test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
+                test: /\.(s(a|c)ss)$/i,
+                use: ['style-loader', 'css-loader', 'sass-loader'],
             },
             { 
                 test: /\.tsx?$/, 
@@ -27,10 +27,10 @@ const baseConfig = {
             //     test: /\.(html)$/,
             //     use: ['html-loader'],
             // },
-            // {
-            //     test: /.(png|svg|jpg|jpeg|gif)$/i,
-            //     type: 'asset/resource',
-            // },
+            {
+                test: /.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',
+            },
         ],
     },
     resolve: {

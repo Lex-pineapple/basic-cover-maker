@@ -1,14 +1,16 @@
+import { FormView } from './formView';
+
 export class AppView {
-    // readonly view: ViewInterface;
+  readonly formView;
 
-    constructor() {
-        // super();
-        // this.view = new View();
-    }
+  constructor() {
+    // super();
+    this.formView = new FormView();
+  }
 
-    // drawView(data: dataInterface): void {
-    //     this.view.draw(values);
-    // }
+  drawView() {
+    this.formView.draw();
+  }
 }
 
 export default AppView;

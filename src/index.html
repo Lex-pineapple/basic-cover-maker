@@ -12,22 +12,63 @@
             <h1>Basic Cover Maker</h1>
         </header>
         <main>
-            <div class="inputs">
-                <label for="type-input">Book type</label>
-                <select name="type-input" id="type-input">
+            <div class="inputs input-form">
+                <label class="label" for="type-input">Book type</label>
+                <select class="input" name="type-input" id="type-input">
                     <option value="Original Work">Original Work</option>
                     <option value="Fanwork" selected>Fanwork</option>
                 </select>
-                <label for="series-input">Series</label>
-                <input type="text" name="series-input" id="series-input" />
-                <label for="title-input">Title</label>
-                <input type="text" name="title-input" id="title-input" />
-                <label for="author-input">Author</label>
-                <input type="text" name="author-input" id="author-input" />
-                <label for="year-input">Year</label>
-                <input type="number" name="year-input" id="year-input" />
-                <button id="button-make">Generate</button>
-                <button id="button-save" disabled>Save Image</button>
+                <label class="label" for="series-input">Series</label>
+                <input class="input" type="text" name="series-input" id="series-input" />
+                <label class="label" for="title-input">Title</label>
+                <input class="input" type="text" name="title-input" id="title-input" />
+                <label class="label" for="author-input">Author</label>
+                <input class="input" type="text" name="author-input" id="author-input" />
+                <label class="label" for="year-input">Year</label>
+                <input class="input" type="number" name="year-input" id="year-input" />
+                <div class="spoiler-container">
+                    <p class="form-text spoiler-text">Additional parameters</p>
+                    <span class="spoiler-arrow"></span>
+                </div>
+                <div class="additional-container">
+                    <p class="form-text">Dimensions</p>
+                    <div class="dimensions-container">
+                        <label class="label label-width" for="width-input">Width</label>
+                        <input class="input input-width" type="number" name="width-input" id="width-input" />
+                        <label class="label label-height" for="height-input">Height</label>
+                        <input class="input input-height" type="number" name="height-input" id="height-input" />
+                    </div>
+                    <label class="label" for="design-input">Design types</label>
+                    <select type="text" class="input" name="design-input" id="design-input">
+                        <option value="Design 1">Design 1</option>
+                        <option value="Design 2">Design 2</option>
+                        <option value="Design 3">Design 3</option>
+                    </select>
+                    <div class="bkg-img-container">
+                        <div class="bkg-img-checkbox-container">
+                            <label class="label" for="bkg-img">Use background image</label>
+                            <input class="input bkg-img-input" type="checkbox" name="bkg-img" id="bkg-img" />
+                        </div>
+                        <div class="bkg-img-sources-container">
+                            <p class="selectable-bubble active">Solid color</p>
+                            <p class="selectable-bubble">Flickr</p>
+                        </div>
+                        <div class="source-img-bubble">
+                            <input
+                                class="input source-img-input"
+                                type="text"
+                                placeholder="Search tags (e.g. flowers)"
+                            />
+                            <button class="button source-img-button">Search for backgrounds</button>
+                            <!-- <label for="img-blur" class="label">Blur image</label>
+                            <input class="input" type="checkbox" name="img-blur" id="img-blur" /> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="input-form-buttons-container">
+                    <button class="button" id="button-make">Generate</button>
+                    <button class="button" id="button-save" disabled>Save Image</button>
+                </div>
             </div>
             <div class="results"></div>
         </main>
