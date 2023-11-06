@@ -10,6 +10,16 @@ export type objectStringType = {
   [key: string]: string;
 };
 
+export interface IFieldData {
+  type: string;
+  series: string;
+  title: string;
+  author: string;
+  year: string;
+  width: number;
+  height: number;
+}
+
 export interface optionsInterface {
   apiKey: string;
   q: string;

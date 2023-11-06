@@ -11,16 +11,20 @@ class App {
   }
 
   start(): void {
-    this.view.drawView();
+    const fieldData = this.controller.getFields();
+    this.view.drawView(fieldData);
+    this.addListeners();
+  }
+
+  addListeners() {
     const buttonGen = document.getElementById('button-make');
     const buttonSave = <HTMLButtonElement>document.getElementById('button-save');
-    const { canvas, context } = this.controller.useCanvas();
     buttonGen?.addEventListener('click', () => {
-      if (context) this.controller.fillTheSpace(context);
+      this.view.generateCover(this.controller.getFields());
       if (buttonSave) buttonSave.disabled = false;
     });
     buttonSave?.addEventListener('click', () => {
-      this.controller.saveImage(canvas);
+      this.controller.saveImage(this.view.coverView.getCanvas());
     });
   }
 }
