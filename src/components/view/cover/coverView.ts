@@ -1,4 +1,4 @@
-import { IBckgColorData, IFieldData, fields } from '../../../types';
+import { IBckgColorData, IColorData, IFieldData, fields } from '../../../types';
 import { pageConfig } from '../../../constants/config';
 
 export class CoverView {
@@ -143,6 +143,41 @@ export class CoverView {
       context.fillStyle = color;
       context.fillRect(0, 0, this.width, this.height);
     }
+    if (data.type === 'gradient') {
+      this.fillGradient(data.value, context);
+    }
+  }
+
+  // TODO: Figure out the rotation
+  fillGradient(colorData: IColorData[], context: CanvasRenderingContext2D) {
+    const gradient1 = context.createRadialGradient(0, 0, 1, 0, 0, this.height);
+    gradient1.addColorStop(0, colorData[0].value);
+    gradient1.addColorStop(1, `${colorData[0].value}00`);
+
+    const gradient2 = context.createRadialGradient(this.width, this.height, 1, this.width, this.height, this.height);
+    gradient2.addColorStop(0, colorData[1].value);
+    gradient2.addColorStop(1, `${colorData[1].value}00`);
+
+    if (colorData.length === 4) {
+      const gradient4 = context.createRadialGradient(0, this.height, 1, 0, this.height, this.height * 0.8);
+      gradient4.addColorStop(0, colorData[3].value);
+      gradient4.addColorStop(1, `${colorData[3].value}00`);
+      context.fillStyle = gradient4;
+      context.fillRect(0, 0, this.width, this.height);
+    }
+
+    if (colorData.length >= 3) {
+      const gradient3 = context.createRadialGradient(this.width, 0, 1, this.width, 0, this.height);
+      gradient3.addColorStop(0, colorData[2].value);
+      gradient3.addColorStop(1, `${colorData[2].value}00`);
+      context.fillStyle = gradient3;
+      context.fillRect(0, 0, this.width, this.height);
+    }
+
+    context.fillStyle = gradient2;
+    context.fillRect(0, 0, this.width, this.height);
+    context.fillStyle = gradient1;
+    context.fillRect(0, 0, this.width, this.height);
   }
 
   generateRandColorspread(data: IFieldData, context: CanvasRenderingContext2D, titleHeight?: number) {
