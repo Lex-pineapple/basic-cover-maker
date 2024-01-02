@@ -155,7 +155,7 @@
   }
 }
 
-.bkg-img {
+.bckg {
   &-container {
     margin-bottom: 1.5em;
   }
@@ -177,6 +177,7 @@
     gap: 10px;
 
     & .selectable-bubble {
+      flex-shrink: 0;
       border-radius: 0.75em;
       margin: 0;
       background-color: $light-gray;
@@ -227,7 +228,7 @@
   }
 }
 
-.source-img {
+.bckg-source {
   &-bubble {
     border-radius: 1.5em;
     background-color: $dark-purple;

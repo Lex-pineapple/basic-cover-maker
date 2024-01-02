@@ -12,7 +12,6 @@ class App {
 
   start(): void {
     const fieldData = this.controller.getFields();
-    this.controller.initGradientPicker();
     this.view.drawView(fieldData);
     this.addListeners();
   }

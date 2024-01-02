@@ -1,10 +1,4 @@
-import { GradientPicker } from '../../utils/gradientPicker';
-
 export class AppController {
-  gradPicker: GradientPicker;
-  constructor() {
-    this.gradPicker = new GradientPicker();
-  }
   getFields() {
     const type = <HTMLInputElement>document.getElementById('type-input');
     const series = <HTMLInputElement>document.getElementById('series-input');
@@ -15,7 +9,6 @@ export class AppController {
     const design = <HTMLSelectElement>document.getElementById('design-input');
     const width = dimensions.value.split('x')[0];
     const height = dimensions.value.split('x')[1];
-    const bckg = this.desideBckg();
 
     return {
       type: type.value || 'Fanworks',
@@ -27,10 +20,6 @@ export class AppController {
       height: parseInt(height) * 120 || 10 * 120,
       design: design.value,
     };
-  }
-
-  initGradientPicker() {
-    this.gradPicker.init();
   }
 
   desideBckg() {
