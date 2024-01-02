@@ -21,7 +21,12 @@
         <label class="label" for="series-input">Series</label>
         <div class="input-options-container">
           <input class="input" type="text" name="series-input" id="series-input" />
-          <input type="color" class="input input-color-series" name="input-color-series" id="input-color-series" />
+          <input
+            type="color"
+            class="input input-color input-color-series"
+            name="input-color-series"
+            id="input-color-series"
+          />
         </div>
         <label class="label" for="title-input">Title</label>
         <input class="input" type="text" name="title-input" id="title-input" />
@@ -60,14 +65,32 @@
               <p class="selectable-bubble" id="flickr">Flickr</p>
             </div>
             <div class="bckg-options-container">
-              <!-- <input type="color" class="input-color-bckg" name="input-color-bckg" id="input-color-bckg" /> -->
-              <div class="grad-bar">
-                <div class="grad-point" id="gp1"></div>
-                <div class="sep1"></div>
-                <div class="grad-point" id="gp2"></div>
-                <div class="sep"></div>
-                <div class="grad-point" id="gp3"></div>
+              <div class="solid-color-container">
+                <label class="label label-input" for="input-color-text">Input color in HEX or choose from picker</label>
+                <input class="input input-color-text" type="text" name="input-color-text" value="#FFFFFF" />
+                <input
+                  class="input input-color input-color-bckg"
+                  type="color"
+                  name="color-input-bckg"
+                  id="color-input-bckg"
+                />
               </div>
+              <!-- <div class="grad-container">
+                <div class="grad-input-container">
+                  <input class="input input-color-text" type="text" name="input-color-text" value="#FFFFFF" />
+                  <input class="input input-color input-color-grad" type="color" name="grad-input1" id="grad-input1" />
+                  <button id="remove-grad-input1" class="button button-remove button-remove-grad"></button>
+                </div>
+                <div class="grad-input-container">
+                  <input class="input input-color-text" type="text" name="input-color-text" value="#FFFFFF" />
+                  <input class="input input-color input-color-grad" type="color" name="grad-input2" id="grad-input2" />
+                  <button id="remove-grad-input2" class="button button-remove button-remove-grad"></button>
+                </div>
+                <div class="grad-add-container">
+                  <input class="input input-grad-text" type="text" name="input-grad-text" value="#FFFFFF" />
+                  <button id="add-grad-input" class="button button-add button-add-grad"></button>
+                </div>
+              </div> -->
             </div>
             <div class="source-img-bubble">
               <input class="input source-img-input" type="text" placeholder="Search tags (e.g. flowers)" />

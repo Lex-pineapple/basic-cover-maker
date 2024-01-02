@@ -1,13 +1,15 @@
+@import 'variables';
+
 .input-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 1em;
-  background-color: #dae1e1;
+  background-color: $light-gray;
+  height: fit-content;
+  width: 800px;
   padding: 3em;
   font-size: 28px;
-  width: 800px;
-  height: fit-content;
 }
 
 .form-text {
@@ -32,7 +34,7 @@
 }
 
 .input {
-  border: 0.1em solid #8d99ff;
+  border: 0.1em solid $solid-purple;
   border-radius: 0.5em;
   margin-bottom: 1.5em;
   width: 100%;
@@ -49,50 +51,78 @@
 
   &-options-container {
     display: flex;
-    width: 100%;
     align-items: center;
+    width: 100%;
   }
 
-  &-color-series {
-    background: none;
+  &-color-text {
+    margin: 0;
+    grid-area: input-text;
+  }
+
+  &-color {
     border: none;
-    width: 70px;
+    margin: 0;
+    background: none;
     height: 70px;
-  }
-}
+    width: 70px;
 
-.input:focus-visible {
-  outline: #6570d1 solid 1px;
+    &-grad {
+      grid-area: input;
+    }
+  }
+
+  &:focus-visible {
+    outline: $dark-purple solid 1px;
+  }
 }
 
 .button {
   border: none;
   border-radius: 0.5em;
-  background-color: #8d99ff;
+  background-color: $solid-purple;
   width: fit-content;
   padding: 1em 0.5em;
   font-size: 32px;
   font-weight: 600;
   color: #fdfdfd;
   cursor: pointer;
-}
 
-.button:disabled {
-  background: #555;
+  &-remove {
+    background: #f5f5f5 url('../assets/cross.svg') center no-repeat;
+    height: 1.5em;
+    width: 1.5em;
+    padding: 0;
+
+    &-grad {
+      grid-area: button;
+    }
+  }
+
+  &-add {
+    background: #fdfdfd url('../assets/plus.svg') center no-repeat;
+    width: 1.5em;
+    height: 1.5em;
+    padding: 0;
+  }
+
+  &:disabled {
+    background: $dark-gray;
+  }
 }
 
 .spoiler {
   &-container {
-    background-color: #bac1c1;
-    border-radius: 1em;
-    padding: 0 1em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    height: 80px;
+    border-radius: 1em;
     margin-bottom: 20px;
+    background-color: $solid-gray;
+    height: 80px;
+    width: 100%;
+    padding: 0 1em;
     cursor: pointer;
   }
 
@@ -141,7 +171,7 @@
     align-items: center;
     border-radius: 1em;
     margin-bottom: 1.5em;
-    background-color: #bac1c1;
+    background-color: $solid-gray;
     height: 100px;
     padding: 0 20px;
     gap: 10px;
@@ -149,14 +179,14 @@
     & .selectable-bubble {
       border-radius: 0.75em;
       margin: 0;
-      background-color: #dae1e1;
+      background-color: $light-gray;
       padding: 20px;
       font-size: 32px;
       font-weight: 600;
       cursor: pointer;
 
       &.active {
-        background-color: #8d99ff;
+        background-color: $solid-purple;
         color: #fdfdfd;
       }
     }
@@ -169,10 +199,38 @@
   }
 }
 
+.bckg-options-container {
+  background: $solid-gray;
+  border-radius: 1em;
+  padding: 2em 1em;
+}
+
+.solid-color-container {
+  display: grid;
+  grid-template-columns: auto auto min-content;
+  grid-template-areas:
+    'label label label'
+    'text text color';
+  gap: 10px;
+
+  & .label-input {
+    grid-area: label;
+  }
+
+  & .input-color-text {
+    grid-area: text;
+  }
+
+  & .input-color {
+    grid-area: color;
+    justify-self: center;
+  }
+}
+
 .source-img {
   &-bubble {
     border-radius: 1.5em;
-    background-color: #6570d1;
+    background-color: $dark-purple;
     padding: 1em;
   }
 
@@ -181,56 +239,21 @@
   }
 
   &-button {
-    background-color: #6570d1;
+    background-color: $dark-purple;
     padding: 15px;
   }
 }
 
-.grad-bar {
-  position: relative;
-  background-color: #fdfdfd;
-
-  // display: flex;
-  // flex-direction: row;
+.grad-input-container {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr auto auto;
+  grid-template-areas: 'input-text input button';
   width: 100%;
-  height: 40px;
-  border-radius: 10px;
-  overflow: hidden;
-  cursor: pointer;
 }
 
-.grad-point {
-  position: absolute;
-  top: 0;
-  height: 40px;
-  padding: 0;
-  margin: 0;
-}
-
-.sep1 {
-  position: absolute;
-  left: 20px;
-  background-color: white;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  z-index: 99;
-}
-
-#gp1 {
-  width: 40px;
-  left: 0;
-  background-color: red;
-}
-
-#gp2 {
-  width: 156px;
-  left: 40px;
-  background-color: green;
-}
-
-#gp3 {
-  width: 436px;
-  left: 196px;
-  background-color: aqua;
+.grad-add-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
