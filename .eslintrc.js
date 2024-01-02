@@ -23,7 +23,6 @@ module.exports = {
   rules: {
     'no-debugger': 'off',
     'no-console': 0,
-    indent: ['error', 2],
     'class-methods-use-this': 'off',
     '@typescript-eslint/no-explicit-any': 'error',
     '@typescript-eslint/no-unsafe-call': 'error',

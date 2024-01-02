@@ -21,6 +21,17 @@ export interface IFieldData {
   width: number;
   height: number;
   design: string;
+  background: IBckgColorData;
+}
+
+export interface IBckgColorData {
+  type: 'solid' | 'gradient';
+  value: IColorData[];
+}
+
+export interface IColorData {
+  type: 'color';
+  value: string;
 }
 
 export interface optionsInterface {

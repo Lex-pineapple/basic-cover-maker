@@ -1,4 +1,4 @@
-import { IFieldData, fields } from '../../../types';
+import { IBckgColorData, IFieldData, fields } from '../../../types';
 import { pageConfig } from '../../../constants/config';
 
 export class CoverView {
@@ -66,7 +66,8 @@ export class CoverView {
     console.log(currDesign);
     const title = this.wrapWords(data.title, context);
     const titleHeight = title.length * 48;
-    this.generateRandColorspread(data, context, titleHeight);
+    this.useBackground(data.background, context, titleHeight);
+    // this.generateRandColorspread(data, context, titleHeight);
     this.placeText(data.author, currDesign.fill.bookAuthor, currDesign.fontWeight, context);
     for (const [_, value] of Object.entries(currDesign.fill)) {
       const type = value.name;
@@ -133,6 +134,14 @@ export class CoverView {
         data.width / 2,
         this.positions[position as keyof typeof this.positions]
       );
+    }
+  }
+
+  useBackground(data: IBckgColorData, context: CanvasRenderingContext2D, titleHeight?: number) {
+    if (data.type === 'solid') {
+      const color = data.value[0].value;
+      context.fillStyle = color;
+      context.fillRect(0, 0, this.width, this.height);
     }
   }
 
