@@ -10,6 +10,8 @@ export type objectStringType = {
   [key: string]: string;
 };
 
+export type fields = 'type' | 'series' | 'title' | 'author' | 'year';
+
 export interface IFieldData {
   type: string;
   series: string;
@@ -18,6 +20,7 @@ export interface IFieldData {
   year: string;
   width: number;
   height: number;
+  design: string;
 }
 
 export interface optionsInterface {

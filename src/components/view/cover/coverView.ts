@@ -1,4 +1,5 @@
-import { IFieldData } from '../../../types';
+import { IFieldData, fields } from '../../../types';
+import { pageConfig } from '../../../constants/config';
 
 export class CoverView {
   canvas: HTMLCanvasElement | null;
@@ -28,8 +29,6 @@ export class CoverView {
 
   generate(data: IFieldData) {
     this.updateDimensions(data.height, data.width);
-    console.log(this.canvas);
-
     if (this.context) this.fillTheSpace(data, this.context);
   }
 
@@ -62,15 +61,29 @@ export class CoverView {
   }
 
   fillTheSpace(data: IFieldData, context: CanvasRenderingContext2D) {
-    context.font = 'sans-serif';
+    const currDesign = pageConfig.presetDesigns[data.design as keyof typeof pageConfig.presetDesigns];
+    context.font = currDesign.font;
+    console.log(currDesign);
     const title = this.wrapWords(data.title, context);
     const titleHeight = title.length * 48;
     this.generateRandColorspread(data, context, titleHeight);
-    this.fillContent(data, context, data.type, 24, 'type');
-    this.fillContent(data, context, data.series, 36, 'series');
-    this.fillContent(data, context, title, 48, 'title');
-    this.fillContent(data, context, data.author, 36, 'author');
-    this.fillContent(data, context, data.year, 24, 'year');
+    this.placeText(data.author, currDesign.fill.bookAuthor, currDesign.fontWeight, context);
+    for (const [_, value] of Object.entries(currDesign.fill)) {
+      const type = value.name;
+      this.placeText(data[type as fields], value, value.fontWeight, context);
+    }
+  }
+
+  placeText(
+    text: string,
+    data: { size: { x: number; y: number }; fontSize: number; font: string },
+    fontWeight: string,
+    context: CanvasRenderingContext2D
+  ) {
+    context.font = `${fontWeight} ${data.fontSize}px ${data.font}`;
+    context.fillStyle = '#100300';
+    const textWidth = context.measureText(text).width;
+    context.fillText(text, this.width * data.size.x * 0.01 - textWidth / 2, this.height * data.size.y * 0.01);
   }
 
   wrapWords(text: string, context: CanvasRenderingContext2D) {

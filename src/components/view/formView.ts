@@ -3,6 +3,14 @@ export class FormView {
     this.attachListener();
   }
 
+  createColorSelector() {
+    const container = document.querySelector('.bkg-img-sources-container');
+    const colorInput = document.createElement('input');
+    colorInput.type = 'color';
+    colorInput.id = 'color-input';
+    container?.append(colorInput);
+  }
+
   attachListener() {
     const spoiler = <HTMLElement>document.querySelector('.spoiler-container');
     const content = <HTMLElement>document.querySelector('.additional-container');

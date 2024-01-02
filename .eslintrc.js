@@ -29,7 +29,7 @@ module.exports = {
     '@typescript-eslint/no-unsafe-call': 'error',
     'prettier/prettier': [
       'error',
-            {
+      {
         endOfLine: 'auto',
       },
     ],

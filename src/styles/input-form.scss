@@ -46,6 +46,19 @@
   &-height {
     grid-area: inp-h;
   }
+
+  &-options-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+
+  &-color-series {
+    background: none;
+    border: none;
+    width: 70px;
+    height: 70px;
+  }
 }
 
 .input:focus-visible {
@@ -171,4 +184,53 @@
     background-color: #6570d1;
     padding: 15px;
   }
+}
+
+.grad-bar {
+  position: relative;
+  background-color: #fdfdfd;
+
+  // display: flex;
+  // flex-direction: row;
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.grad-point {
+  position: absolute;
+  top: 0;
+  height: 40px;
+  padding: 0;
+  margin: 0;
+}
+
+.sep1 {
+  position: absolute;
+  left: 20px;
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  z-index: 99;
+}
+
+#gp1 {
+  width: 40px;
+  left: 0;
+  background-color: red;
+}
+
+#gp2 {
+  width: 156px;
+  left: 40px;
+  background-color: green;
+}
+
+#gp3 {
+  width: 436px;
+  left: 196px;
+  background-color: aqua;
 }

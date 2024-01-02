@@ -13,5 +13,10 @@ module.exports = {
         port: 8080,
         open: true,
         hot: true,
+        client: {
+            overlay: {
+                warnings: false,
+            }
+        }
     },
 };
